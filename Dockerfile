@@ -90,7 +90,7 @@ RUN set -xe; \
 		wget -O php.tar.xz.asc "$PHP_ASC_URL"; \
 		export GNUPGHOME="$(mktemp -d)"; \
 		for key in $GPG_KEYS; do \
-			gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key"; \
+			gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
 		done; \
 		gpg --batch --verify php.tar.xz.asc php.tar.xz; \
 		command -v gpgconf > /dev/null && gpgconf --kill all; \
@@ -100,8 +100,6 @@ RUN set -xe; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps
 
 COPY docker-php-source /usr/local/bin/
-
-RUN chmod +x /usr/local/bin/docker-php-source
 
 RUN set -eux; \
 	\
@@ -172,7 +170,6 @@ RUN set -eux; \
 		--with-libedit \
 		--with-openssl \
 		--with-zlib \
-		--with-pdo-mysql \
 		\
 # bundled pcre does not support JIT on s390x
 # https://manpages.debian.org/stretch/libpcre3-dev/pcrejit.3.en.html#AVAILABILITY_OF_JIT_SUPPORT
