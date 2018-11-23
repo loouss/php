@@ -22,7 +22,8 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
     json \
     opcache \
     sockets \
-    pcntl
+    pcntl \
+    curl
 #    && \
 #    echo "opcache.enable_cli=1" >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 
