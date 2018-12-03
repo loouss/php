@@ -59,9 +59,13 @@ ARG PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie"
 ARG GPG_KEYS="1729F83938DA44E27BA0F4D3DBDB397470D12172 B1B44D8F021E4E2D6021E995DC9FF8D3EE5AF27F"
 
 ARG PHP_VERSION=7.2.12
-#ENV PHP_URL="https://secure.php.net/get/php-7.2.12.tar.xz/from/this/mirror" PHP_ASC_URL="https://secure.php.net/get/php-7.2.12.tar.xz.asc/from/this/mirror"
-ARG PHP_URL="http://cn2.php.net/get/php-7.2.12.tar.xz/from/this/mirror"
-ARG PHP_ASC_URL="http://cn2.php.net/get/php-7.2.12.tar.xz.asc/from/this/mirror"
+#墙外
+ARG PHP_URL="https://secure.php.net/get/php-7.2.12.tar.xz/from/this/mirror"
+ARG PHP_ASC_URL="https://secure.php.net/get/php-7.2.12.tar.xz.asc/from/this/mirror"
+#墙内
+#ARG PHP_URL="http://cn2.php.net/get/php-7.2.12.tar.xz/from/this/mirror"
+#ARG PHP_ASC_URL="http://cn2.php.net/get/php-7.2.12.tar.xz.asc/from/this/mirror"
+
 ARG PHP_SHA256="989c04cc879ee71a5e1131db867f3c5102f1f7565f805e2bb8bde33f93147fe1"
 ARG PHP_MD5=""
 
