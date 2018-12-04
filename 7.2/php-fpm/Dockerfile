@@ -281,7 +281,7 @@ RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo 'Asia/Shanghai' > /etc/timezone && \
     echo "[Date]\ndate.timezone=Asia/Shanghai" > /usr/local/etc/php/conf.d/timezone.ini
 
-ENV PHP_DB_HOSTNAME="" PHP_DB_DATABASES="" PHP_DB_USERNAME="" PHP_DB_PASSWORD="" PHP_REDIS_HOST=""
+ENV PHP_DB_HOSTNAME="" PHP_DB_DATABASES="" PHP_DB_USERNAME="" PHP_DB_PASSWORD="" PHP_DB_HOST_PORT="" PHP_REDIS_HOST="" PHP_SESSION_TYPE=""
 
 EXPOSE 9000
 CMD ["php-fpm"]
