@@ -274,7 +274,7 @@ RUN apt-get update && apt-get install -y \
         pecl install redis-4.0.1 && \
         pecl install yar-2.0.4 && \
         pecl install swoole-4.2.8 && \
-        pecl install mcrypt-1.0.1.tgz && \
+        pecl install mcrypt-1.0.1 && \
         docker-php-ext-enable redis yar swoole mcrypt
 
 # set China timezone
