@@ -245,7 +245,7 @@ RUN set -ex \
 
 
 RUN apt-get update && apt-get install -y \
-        libcurl4-gnutls-dev libmcrypt-dev --no-install-recommends && \
+        libcurl4-gnutls-dev --no-install-recommends && \
         rm -rf /var/lib/apt/lists/* && \
         apt autoremove && apt clean && \
         pecl install redis-4.0.1 && \
