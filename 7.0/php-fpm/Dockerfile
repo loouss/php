@@ -55,17 +55,17 @@ ARG PHP_EXTRA_CONFIGURE_ARGS="--enable-fpm --enable-opcache --with-fpm-user=www-
 ARG PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2"
 ARG PHP_CPPFLAGS="$PHP_CFLAGS"
 ARG PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie"
-ARG GPG_KEYS="1729F83938DA44E27BA0F4D3DBDB397470D12172 B1B44D8F021E4E2D6021E995DC9FF8D3EE5AF27F"
+ARG GPG_KEYS="1A4E8B7277C42E53DBA9C7B9BCAA30EA9C0D5763 6E4F6AB321FDC07F2C332E3AC2BF0BC433CFC8B3"
 
-#ARG PHP_VERSION=7.2.12
+#ARG PHP_VERSION=7.0.32
 #墙外
-ARG PHP_URL="https://secure.php.net/get/php-7.2.12.tar.xz/from/this/mirror"
-ARG PHP_ASC_URL="https://secure.php.net/get/php-7.2.12.tar.xz.asc/from/this/mirror"
+ARG PHP_URL="https://secure.php.net/get/php-7.0.32.tar.xz/from/this/mirror"
+ARG PHP_ASC_URL="https://secure.php.net/get/php-7.0.32.tar.xz.asc/from/this/mirror"
 #墙内
-#ARG PHP_URL="http://cn2.php.net/get/php-7.2.12.tar.xz/from/this/mirror"
-#ARG PHP_ASC_URL="http://cn2.php.net/get/php-7.2.12.tar.xz.asc/from/this/mirror"
+#ARG PHP_URL="http://cn2.php.net/get/php-7.0.32.tar.xz/from/this/mirror"
+#ARG PHP_ASC_URL="http://cn2.php.net/get/php-7.0.32.tar.xz.asc/from/this/mirror"
 
-ARG PHP_SHA256="989c04cc879ee71a5e1131db867f3c5102f1f7565f805e2bb8bde33f93147fe1"
+ARG PHP_SHA256="ff6f62afeb32c71b3b89ecbd42950ef6c5e0c329cc6e1c58ffac47e6f1f883c4"
 ARG PHP_MD5=""
 
 RUN set -xe; \
