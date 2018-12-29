@@ -183,7 +183,7 @@ COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 RUN pecl install redis-4.0.1 && \
     pecl install swoole-4.2.8 && \
     pecl install mcrypt-1.0.1 && \
-    pecl install msgpack-2.0.3
+    pecl install msgpack-2.0.3 && \
     docker-php-ext-enable redis yar swoole mcrypt msgpack
 
 # set China timezone
