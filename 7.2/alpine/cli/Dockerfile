@@ -20,7 +20,8 @@ ARG PHPIZE_DEPS=" \
 		re2c \
         freetype-dev \
         libjpeg-turbo-dev \
-        libpng-dev"
+        libpng-dev \
+        libmcrypt-dev"
 
 # persistent / runtime deps
 RUN apk add --no-cache --virtual .persistent-deps \
