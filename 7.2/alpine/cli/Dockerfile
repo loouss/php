@@ -172,15 +172,15 @@ RUN set -xe \
 	)" \
 	&& apk add --no-cache --virtual .php-rundeps $runDeps \
 	\
-# https://github.com/docker-library/php/issues/443
-	&& pecl update-channels \
-	&& pecl install redis-4.0.1 \
-	&& pecl install mcrypt-1.0.1 \
-	&& pecl install msgpack-2.0.3 \
-	&& pecl install swoole-4.2.8 \
-	\
 	&& apk del .build-deps \
 	\
+	# https://github.com/docker-library/php/issues/443
+    && pecl update-channels \
+    && pecl install redis-4.0.1 \
+    && pecl install mcrypt-1.0.1 \
+    && pecl install msgpack-2.0.3 \
+    && pecl install swoole-4.2.8 \
+    \
 	&& rm -rf /tmp/pear ~/.pearrc
 
 COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
