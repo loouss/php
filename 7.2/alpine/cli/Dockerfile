@@ -185,9 +185,9 @@ RUN set -xe \
 COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
 # set China timezone
-RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-    echo 'Asia/Shanghai' > /etc/timezone && \
-    echo "[Date]\ndate.timezone=Asia/Shanghai" > /usr/local/etc/php/conf.d/timezone.ini
+#RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+#    echo 'Asia/Shanghai' > /etc/timezone && \
+#    echo "[Date]\ndate.timezone=Asia/Shanghai" > /usr/local/etc/php/conf.d/timezone.ini
 
 
 # sodium was built as a shared module (so that it can be replaced later if so desired), so let's enable it too (https://github.com/docker-library/php/issues/598)
