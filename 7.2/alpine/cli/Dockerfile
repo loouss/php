@@ -90,7 +90,7 @@ RUN set -xe; \
 		export GNUPGHOME="$(mktemp -d)"; \
 		for key in $GPG_KEYS; do \
 #			gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
-			gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key"; \
+			gpg --batch --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys "$key"; \
 		done; \
 		gpg --batch --verify php.tar.xz.asc php.tar.xz; \
 		command -v gpgconf > /dev/null && gpgconf --kill all; \
