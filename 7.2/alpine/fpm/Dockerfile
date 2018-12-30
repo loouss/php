@@ -231,7 +231,7 @@ RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS  \
         && pecl install -o -f yar-2.0.4  \
         && pecl install -o -f swoole-4.2.8  \
         && pecl install -o -f mcrypt-1.0.1  \
-        docker-php-ext-enable redis yar swoole mcrypt \
+        && docker-php-ext-enable redis yar swoole mcrypt \
         && apk del $PHPIZE_DEPS \
         && rm -rf /tmp/pear ~/.pearrc
 
