@@ -169,7 +169,13 @@ RUN set -xe \
     && cd /tmp \
     && pecl install -o -f redis-4.0.1 \
     && pecl install -o -f msgpack-2.0.3 \
-    && curl -SL "http://pecl.php.net/get/swoole-4.2.11.tgz" -o swoole.tgz \
+    \
+    && cd / \
+    \
+	&& docker-php-source delete \
+	\
+    && cd /tmp \
+	&& curl -SL "http://pecl.php.net/get/swoole-4.2.11.tgz" -o swoole.tgz \
     && mkdir -p swoole \
     && tar -xf swoole.tar.gz -C swoole --strip-components=1 \
     && rm swoole.tar.gz \
@@ -181,10 +187,6 @@ RUN set -xe \
     ) \
     && rm -r swoole \
     \
-    && cd / \
-    \
-	&& docker-php-source delete \
-	\
 	&& runDeps="$( \
 		scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
 			| tr ',' '\n' \
