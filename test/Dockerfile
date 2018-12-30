@@ -16,11 +16,11 @@ RUN set -ex \
         && apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS \
         # for swoole ext
         && apk add --no-cache libaio \
-         linux-headers \
-         libaio-dev \
-         openssl-dev \
-         libstdc++ \
-         librdkafka-dev \
+        linux-headers \
+        libaio-dev \
+        openssl-dev \
+        libstdc++ \
+        librdkafka-dev \
         # php extension: redis
         && pecl install redis.tgz \
         && docker-php-ext-enable redis \
