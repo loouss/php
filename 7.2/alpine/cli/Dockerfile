@@ -17,11 +17,7 @@ ARG PHPIZE_DEPS=" \
 		libc-dev \
 		make \
 		pkgconf \
-		re2c \
-        freetype-dev \
-        libjpeg-turbo-dev \
-        libpng-dev \
-        libmcrypt-dev"
+		re2c"
 
 # persistent / runtime deps
 RUN apk add --no-cache --virtual .persistent-deps \
@@ -112,6 +108,10 @@ RUN set -xe \
 		libsodium-dev \
 		libxml2-dev \
 		sqlite-dev \
+        freetype-dev \
+        libjpeg-turbo-dev \
+        libpng-dev \
+        libmcrypt-dev \
 	\
 	&& chmod +x /usr/local/bin/docker-php-source \
 	&& export CFLAGS="$PHP_CFLAGS" \
@@ -182,12 +182,12 @@ RUN set -xe \
 
 COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
-RUN  apk add --no-cache --virtual .phpize-deps autoconf \
+RUN  apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS  \
     && pecl install redis-4.0.1 \
     && pecl install mcrypt-1.0.1 \
     && pecl install msgpack-2.0.3 \
     && pecl install swoole-4.2.8 \
-    && apk del .phpize-deps autoconf \
+    && apk del .phpize-deps $PHPIZE_DEPS \
     && rm -rf /tmp/pear ~/.pearrc
 
 # set China timezone
