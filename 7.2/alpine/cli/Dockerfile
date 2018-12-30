@@ -183,9 +183,9 @@ RUN set -xe \
 COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
 RUN  apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS  \
-    && pecl install redis-4.0.1 \
-    && pecl install msgpack-2.0.3 \
-    && pecl install swoole-4.2.8 \
+    && pecl install -o -f redis-4.0.1 \
+    && pecl install -o -f msgpack-2.0.3 \
+    && pecl install -o -f swoole-4.2.8 \
     && apk del $PHPIZE_DEPS \
     && rm -rf /tmp/pear ~/.pearrc
 
