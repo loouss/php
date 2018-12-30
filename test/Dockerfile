@@ -13,7 +13,7 @@ RUN  apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS  \
     && pecl install -o -f msgpack-2.0.3 \
     && pecl install -o -f swoole-4.2.8 \
     && docker-php-ext-enable redis swoole msgpack \
-    && apk del .phpize-deps $PHPIZE_DEPS \
+    && apk del -deps $PHPIZE_DEPS \
     && rm -rf /tmp/pear ~/.pearrc \
 
 #RUN set -ex \
