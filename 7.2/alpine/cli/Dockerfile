@@ -186,7 +186,7 @@ RUN  apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS  \
     && pecl install -o -f redis-4.0.1 \
     && pecl install -o -f msgpack-2.0.3 \
     && pecl install -o -f swoole-4.2.8 \
-    && apk del $PHPIZE_DEPS \
+    && apk del .phpize-deps $PHPIZE_DEPS \
     && rm -rf /tmp/pear ~/.pearrc
 
 # set China timezone
