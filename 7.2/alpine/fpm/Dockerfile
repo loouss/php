@@ -225,13 +225,14 @@ RUN set -ex \
 	} | tee php-fpm.d/zz-docker.conf
 
 RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS  \
-        libcurl4-gnutls-dev libmcrypt-dev  && \
-        rm -rf /var/lib/apt/lists/* && \
-        pecl install redis-4.0.1 && \
-        pecl install yar-2.0.4 && \
-        pecl install swoole-4.2.8 && \
-        pecl install mcrypt-1.0.1 && \
-        docker-php-ext-enable redis yar swoole mcrypt
+        && curl-dev libmcrypt-dev   \
+        && pecl install redis-4.0.1  \
+        && pecl install yar-2.0.4  \
+        && pecl install swoole-4.2.8  \
+        && pecl install mcrypt-1.0.1  \
+        docker-php-ext-enable redis yar swoole mcrypt \
+        && apk del $PHPIZE_DEPS \
+        && rm -rf /tmp/pear ~/.pearrc
 
 EXPOSE 9000
 CMD ["php-fpm"]
