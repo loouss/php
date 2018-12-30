@@ -166,7 +166,7 @@ RUN set -xe \
 	# https://github.com/docker-library/php/issues/443
     && pecl update-channels \
     && pecl install -o -f redis-4.0.1  \
-    && pecl install -o -f yar-2.0.4  \
+    && pecl install -o -f yar-2.0.5  \
     && pecl install -o -f mcrypt-1.0.1  \
 	\
 	&& cd / \
@@ -230,8 +230,10 @@ RUN set -ex \
 		echo 'listen = 9000'; \
 	} | tee php-fpm.d/zz-docker.conf
 
-#        curl-dev libmcrypt-dev \
-
+# set China timezone
+RUN apk add  --no-cache tzdata \
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && apk del tzdata
 
 EXPOSE 9000
 CMD ["php-fpm"]
