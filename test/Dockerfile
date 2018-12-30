@@ -38,7 +38,7 @@ RUN set -ex \
                 && ( \
                     cd swoole \
                     && phpize \
-                    && ./configure --enable-async-redis --enable-mysqlnd --enable-coroutine --enable-openssl \
+                    && ./configure --enable-mysqlnd --enable-coroutine --enable-openssl \
                     && make -j$(nproc) && make install \
                 ) \
                 && rm -r swoole \
