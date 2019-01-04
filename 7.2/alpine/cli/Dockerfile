@@ -170,6 +170,7 @@ RUN set -xe \
     && cd /tmp \
     && pecl install -o -f redis-4.0.1 \
     && pecl install -o -f msgpack-2.0.3 \
+    && pecl install -o -f yar-2.0.5 \
 #    && curl -SL "http://pecl.php.net/get/swoole-4.2.11.tgz" -o swoole.tgz \
     && curl -SL "https://github.com/swoole/swoole-src/archive/v4.2.11.tar.gz" -o swoole.tar.gz \
     && mkdir -p swoole \
@@ -203,7 +204,7 @@ COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
 # sodium was built as a shared module (so that it can be replaced later if so desired), so let's enable it too (https://github.com/docker-library/php/issues/598)
 RUN chmod -R +x /usr/local/bin/ && \
-    docker-php-ext-enable sodium redis swoole msgpack
+    docker-php-ext-enable sodium redis swoole msgpack yar
 
 # set China timezone
 RUN apk add  --no-cache tzdata \
