@@ -1,0 +1,25 @@
+
+FROM loouss/php:7.2.14-cli-alpine
+
+MAINTAINER loouss <loouss.ls@gmail.com>
+
+ADD . /var/www/php
+
+WORKDIR /var/www/php
+
+RUN apk update \
+    && apk add --no-cache --virtual git \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
+    && composer install \
+    && composer clearcache \
+    && apk del git \
+    && chmod +x /usr/local/bin/docker-php-entrypoint \
+    && chmod +x /var/www/php/bin/service-start \
+    && rm -rf /tmp/pear ~/.pearrc \
+#    && rm -rf /var/lib/apk/* \
+
+ENV PHP_DB_HOSTNAME="" PHP_DB_DATABASES="" PHP_DB_USERNAME="" PHP_DB_PASSWORD="" PHP_DB_HOST_PORT=""
+
+EXPOSE 80
+
+CMD ["/var/www/php/bin/service-start"]
