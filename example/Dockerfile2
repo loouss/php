@@ -1,0 +1,21 @@
+FROM composer as ci
+
+RUN mkdir -p /var/www/php
+ADD . /var/www/php
+
+WORKDIR /var/www/php
+
+RUN composer install
+
+
+FROM loouss/php:7.2.14-cli-alpine
+
+MAINTAINER loouss <loouss.ls@gmail.com>
+
+COPY --from=ci /var/www/php /var/www/php
+
+ENV PHP_DB_HOSTNAME="" PHP_DB_DATABASES="" PHP_DB_USERNAME="" PHP_DB_PASSWORD="" PHP_DB_HOST_PORT=""
+
+EXPOSE 80
+
+CMD ["/var/www/php/bin/service-start"]
