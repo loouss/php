@@ -330,6 +330,7 @@ RUN set -xe \
 
 COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 COPY httpd-foreground /usr/local/bin/
+COPY httpd.conf /usr/local/apache2/conf/httpd.conf
 # sodium was built as a shared module (so that it can be replaced later if so desired), so let's enable it too (https://github.com/docker-library/php/issues/598)
 RUN chmod -R +x /usr/local/bin/ \
     && docker-php-ext-enable sodium redis yar
