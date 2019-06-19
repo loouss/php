@@ -157,7 +157,8 @@ ARG PHPIZE_DEPS="\
 		libc-dev \
 		make \
 		pkgconf \
-		re2c"
+		re2c \
+		libzookeeper-dev"
 
 # persistent / runtime deps
 RUN apk add --no-cache \
@@ -166,8 +167,7 @@ RUN apk add --no-cache \
 		tar \
 		xz \
 # https://github.com/docker-library/php/issues/494
-		openssl \
-		libzookeeper
+		openssl
 
 # ensure www-data user exists
 
