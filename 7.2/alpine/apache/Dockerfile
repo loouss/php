@@ -157,8 +157,7 @@ ARG PHPIZE_DEPS="\
 		libc-dev \
 		make \
 		pkgconf \
-		re2c \
-		libzookeeper-dev"
+		re2c"
 
 # persistent / runtime deps
 RUN apk add --no-cache \
@@ -169,6 +168,11 @@ RUN apk add --no-cache \
 # https://github.com/docker-library/php/issues/494
 		openssl
 
+# add libzookeeper
+RUN apk add --update --no-cache \
+        --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
+        --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
+        libzookeeper-dev
 # ensure www-data user exists
 
 # 82 is the standard uid/gid for "www-data" in Alpine
