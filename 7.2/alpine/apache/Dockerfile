@@ -157,7 +157,8 @@ ARG PHPIZE_DEPS="\
 		libc-dev \
 		make \
 		pkgconf \
-		re2c"
+		re2c \
+		libzookeeper"
 
 # persistent / runtime deps
 RUN apk add --no-cache \
