@@ -172,7 +172,7 @@ RUN apk add --no-cache \
 RUN apk add --update --no-cache \
         --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
         --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
-        libzookeeper-dev
+        libzookeeper
 # ensure www-data user exists
 
 # 82 is the standard uid/gid for "www-data" in Alpine
