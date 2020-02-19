@@ -10,6 +10,6 @@ RUN apk add --no-cache --virtual .build-deps \
         pkgconf \
         re2c \
         zip \
-    && pecl install -o -f zip \
+    && pecl install -o -f zip-1.17.1 \
     && apk del --no-network .build-deps \
     && docker-php-ext-enable zip
