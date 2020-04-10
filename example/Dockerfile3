@@ -1,0 +1,17 @@
+FROM loouss/php:7.2.17-apache-alpine
+
+RUN mkdir -p /var/www/html
+ADD . /var/www/html
+
+WORKDIR /var/www/html
+
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+RUN  apk update \
+    && apk add --no-cache --virtual git \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+    #&& composer install \
+    #&& composer clearcache \
+    #&& apk del git \
+
+RUN composer install
+#COPY --from=ci /var/www/html /var/www/html
