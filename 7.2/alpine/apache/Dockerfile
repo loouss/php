@@ -206,10 +206,10 @@ ARG PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie"
 
 ARG GPG_KEYS="1729F83938DA44E27BA0F4D3DBDB397470D12172 B1B44D8F021E4E2D6021E995DC9FF8D3EE5AF27F"
 
-ARG PHP_VERSION=7.2.17
-ARG PHP_URL="https://www.php.net/get/php-7.2.17.tar.xz/from/this/mirror"
-ARG PHP_ASC_URL="https://www.php.net/get/php-7.2.17.tar.xz.asc/from/this/mirror"
-ARG PHP_SHA256="a3e5f51a9ae08813b3925bea3a4de02cd4906fcccf75646e267a213bb63bcf84"
+ARG PHP_VERSION=7.2.33
+ARG PHP_URL="https://www.php.net/get/php-7.2.33.tar.xz/from/this/mirror"
+ARG PHP_ASC_URL="https://www.php.net/get/php-7.2.33.tar.xz.asc/from/this/mirror"
+ARG PHP_SHA256="0f160a3483ffce36be5962fab7bcf09d605ee66c5707df83e4195cb796bbb03a"
 ARG PHP_MD5=""
 
 RUN set -xe; \
