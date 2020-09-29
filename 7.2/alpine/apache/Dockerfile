@@ -168,6 +168,7 @@ RUN apk add --no-cache \
 # https://github.com/docker-library/php/issues/494
 		openssl
 
+RUN apk add --update
 # add libzookeeper
 #RUN apk add --update --no-cache \
 #        --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
