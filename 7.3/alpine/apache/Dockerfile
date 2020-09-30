@@ -1,7 +1,8 @@
 FROM alpine:3.12
 MAINTAINER loouss.ls@gmail.com
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+# aliyun
+#RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 # Add basics first
 RUN apk update && apk upgrade && apk add \
