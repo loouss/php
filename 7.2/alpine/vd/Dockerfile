@@ -1,15 +1,12 @@
-FROM alpine:edge
-MAINTAINER Paul Smith <pa.ulsmith.net>
+FROM alpine:3.12
+MAINTAINER loouss.ls@gmail.com
 
-# Add repos
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 # Add basics first
 RUN apk update && apk upgrade && apk add \
 	bash apache2 php7-apache2 curl ca-certificates openssl openssh git php7 php7-phar php7-json php7-iconv php7-openssl tzdata openntpd nano
 
-# Add Composer
-RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
 # Setup apache and php
 RUN apk add \
@@ -66,8 +63,6 @@ RUN sed -i "s/#LoadModule\ rewrite_module/LoadModule\ rewrite_module/" /etc/apac
     && printf "\n<Directory \"/app/public\">\n\tAllowOverride All\n</Directory>\n" >> /etc/apache2/httpd.conf
 
 RUN mkdir /app && mkdir /app/public && chown -R apache:apache /app && chmod -R 755 /app && mkdir bootstrap
-ADD start.sh /bootstrap/
-RUN chmod +x /bootstrap/start.sh
 
 EXPOSE 80
-ENTRYPOINT ["/bootstrap/start.sh"]
+ENTRYPOINT ["httpd","-D","FOREGROUND"]
