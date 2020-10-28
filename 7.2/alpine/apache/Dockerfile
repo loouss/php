@@ -1,10 +1,10 @@
-FROM alpine:3.12
+FROM alpine:3.9
 MAINTAINER loouss.ls@gmail.com
 
 # aliyun
 #RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-RUN wget -O /etc/apk/keys/phpearth.rsa.pub https://repos.php.earth/alpine/phpearth.rsa.pub && echo "https://repos.php.earth/alpine/v3.7" >> /etc/apk/repositories
+RUN wget -O /etc/apk/keys/phpearth.rsa.pub https://repos.php.earth/alpine/phpearth.rsa.pub && echo "https://repos.php.earth/alpine/v3.9" >> /etc/apk/repositories
 
 # Add basics first
 RUN apk update && apk upgrade && apk add \
