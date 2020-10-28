@@ -8,51 +8,52 @@ RUN wget -O /etc/apk/keys/phpearth.rsa.pub https://repos.php.earth/alpine/phpear
 
 # Add basics first
 RUN apk update && apk upgrade && apk add \
-	bash apache2 php7.2.2-apache2 curl ca-certificates openssl openssh git php7.2.2 php7.2.2-phar php7.2.2-json php7.2.2-iconv php7.2.2-openssl tzdata openntpd nano
+	bash apache2 php7.2-apache2 curl ca-certificates openssl openssh git php7.2 php7.2-phar php7.2-json php7.2-iconv php7.2-openssl tzdata openntpd nano
 
 
 # Setup apache and php
 RUN apk add \
-	php7.2.2-ftp \
-	php7.2.2-xdebug \
-	php7.2.2-mcrypt \
-	php7.2.2-mbstring \
-	php7.2.2-soap \
-	php7.2.2-gmp \
-	php7.2.2-pdo_odbc \
-	php7.2.2-dom \
-	php7.2.2-pdo \
-	php7.2.2-zip \
-	php7.2.2-mysqli \
-	php7.2.2-sqlite3 \
-	php7.2.2-pdo_pgsql \
-	php7.2.2-bcmath \
-	php7.2.2-gd \
-	php7.2.2-odbc \
-	php7.2.2-pdo_mysql \
-	php7.2.2-pdo_sqlite \
-	php7.2.2-gettext \
-	php7.2.2-xml \
-	php7.2.2-xmlreader \
-	php7.2.2-xmlwriter \
-	php7.2.2-tokenizer \
-	php7.2.2-xmlrpc \
-	php7.2.2-bz2 \
-	php7.2.2-pdo_dblib \
-	php7.2.2-curl \
-	php7.2.2-ctype \
-	php7.2.2-session \
-	php7.2.2-redis \
-	php7.2.2-exif \
-	php7.2.2-intl \
-	php7.2.2-fileinfo \
-	php7.2.2-ldap \
-	php7.2.2-apcu
+	php7.2-ftp \
+	php7.2-xdebug \
+	php7.2-mcrypt \
+	php7.2-mbstring \
+	php7.2-soap \
+	php7.2-gmp \
+	php7.2-pdo_odbc \
+	php7.2-dom \
+	php7.2-pdo \
+	php7.2-zip \
+	php7.2-mysqli \
+	php7.2-sqlite3 \
+	php7.2-pdo_pgsql \
+	php7.2-bcmath \
+	php7.2-gd \
+	php7.2-odbc \
+	php7.2-pdo_mysql \
+	php7.2-pdo_sqlite \
+	php7.2-gettext \
+	php7.2-xml \
+	php7.2-xmlreader \
+	php7.2-xmlwriter \
+	php7.2-tokenizer \
+	php7.2-xmlrpc \
+	php7.2-bz2 \
+	php7.2-pdo_dblib \
+	php7.2-curl \
+	php7.2-ctype \
+	php7.2-session \
+	php7.2-redis \
+	php7.2-exif \
+	php7.2-intl \
+	php7.2-fileinfo \
+	php7.2-ldap \
+	php7.2-apcu \
+	php7.2-redis
 
 # Problems installing in above stack
-RUN apk add php7.2.2-simplexml
+RUN apk add php7.2-simplexml
 
-RUN cp /usr/bin/php7.2.2 /usr/bin/php \
+RUN cp /usr/bin/php7.2 /usr/bin/php \
     && rm -f /var/cache/apk/*
 
 # Add apache to run and configure
