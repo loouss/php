@@ -64,7 +64,7 @@ RUN sed -i "s/#LoadModule\ rewrite_module/LoadModule\ rewrite_module/" /etc/apac
     && sed -i "s/#LoadModule\ deflate_module/LoadModule\ deflate_module/" /etc/apache2/httpd.conf \
     && sed -i "s#^DocumentRoot \".*#DocumentRoot \"/app/public\"#g" /etc/apache2/httpd.conf \
     && sed -i "s#/var/www/localhost/htdocs#/app/public#" /etc/apache2/httpd.conf \
-	&& sed -i "s/Options Indexes FollowSymLinks/Options \-Indexes FollowSymLinks/" /etc/apache2/httpd.conf \
+	&& sed -i "s/Options Indexes FollowSymLinks/Options \-Indexes/" /etc/apache2/httpd.conf \
     && printf "\n<Directory \"/app/public\">\n\tAllowOverride All\n</Directory>\n" >> /etc/apache2/httpd.conf \
 	&& sed -i "s/expose_php = On/expose_php \= Off/" /etc/php/7.2/php.ini
 
