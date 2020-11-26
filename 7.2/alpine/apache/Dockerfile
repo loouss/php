@@ -18,7 +18,9 @@ RUN apk update \
     && rm xlswriter.tgz \
     && cd /tmp/xlswriter \
     && phpize && ./configure --enable-reader && make && make install \
-	&& rm -rf /tmp/xlswriter
+	&& rm -rf /tmp/xlswriter \
+	&& apk del .build-deps \
+	&& rm -rf /tmp/pear ~/.pearrc
 
 
 # Setup apache and php
