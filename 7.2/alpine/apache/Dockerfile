@@ -8,7 +8,7 @@ RUN wget -O /etc/apk/keys/phpearth.rsa.pub https://repos.php.earth/alpine/phpear
 
 # Add basics first
 RUN apk update && apk upgrade && apk add \
-	bash apache2 php7.2-apache2 curl ca-certificates openssl openssh git php7.2 php7.2-phar php7.2-json php7.2-iconv php7.2-openssl tzdata openntpd nano
+	bash apache2 php7.2-apache2 curl ca-certificates openssl php7.2 php7.2-phar php7.2-json php7.2-iconv php7.2-openssl tzdata openntpd
 
 RUN apk update \
     && apk add --no-cache --virtual .build-deps php7.2-pear php7.2-dev zlib-dev re2c gcc g++ make \
