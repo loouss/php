@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 
+RUN  sed -i "s/archive.ubuntu.com/mirrors.aliyun.com/g" /etc/apt/sources.list
 RUN set -ex \
     && apt-get update \
     && apt-get install -y tzdata curl wget \
